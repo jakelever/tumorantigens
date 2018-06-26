@@ -1,0 +1,25 @@
+name: TumorAntigens
+version: 0.1
+url: https://github.com/jakelever/tumorantigens
+resources:
+   full:
+      - PUBMED:
+         format: bioc
+      - PMCOA:
+         format: bioc
+      - PMCAMC:
+         format: bioc
+   test:
+      - PUBMED_CUSTOM:
+         pmids: 17438107
+         format: bioc
+         rename: PUBMED
+      - PMCOA_CUSTOM:
+         pmcids: 31179
+         format: bioc
+         rename: PMCOA
+run:
+   - python findSentences.py --biocFile {IN:PUBMED/%} --wordlistPickle wordlist.pickle --outSentencesFilename {OUT:sentenceData/%.json}
+   - python findSentences.py --biocFile {IN:PMCOA/%} --wordlistPickle wordlist.pickle --outSentencesFilename {OUT:sentenceData/%.json}
+   - python findSentences.py --biocFile {IN:PMCAMC/%} --wordlistPickle wordlist.pickle --outSentencesFilename {OUT:sentenceData/%.json}
+
