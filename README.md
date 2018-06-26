@@ -1,2 +1,3 @@
-# tumorantigens
-Text mining tumor antigens for cancer immunotherapy research
+# Tumor Antigens
+
+We're looking for sentences that describe tumor antigens.
